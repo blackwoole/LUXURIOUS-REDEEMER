@@ -1,0 +1,23 @@
+{
+    "promoType": "1m",
+    "cardName": "Emreng",
+    "line_1": "idk",
+    "city": "idk",
+    "state": "idk",
+    "postalcode": "31-539",
+    "inbuilt-promo-gen": {
+       "use-inbuilt-promo-gen": "off/doesnt work",
+       "capsolverkey": "off"
+    },
+    "webhookurl": "https://discord.com/api/webhooks/1212084310983581746/I1JDp8HGBzWtMe-_fZeum3Y6fSv6egYynrmZoovunEWlyJgpeIFNuNEDvLh0MXjJiyhY",
+    "country": "PL",
+    "proxySupport": "off",
+    "custom-branding": {
+        "custom-branding": "on",
+        "displayName": ".gg/ncert"
+    },
+    "capsolver-support": {
+        "usecapsolver": "off",
+        "key": "off"
+    }
+}
