@@ -573,7 +573,7 @@ class REDEEMER:
        if id == 'F':     
           return 'Fa'
        else:
-        if promoType == '1m': 
+        if promoType == '1m' and '1180231712274387115' in self.promoz: 
          codes = self.GetPromoCode()
          __headers = {
     'authority': 'discord.com',
