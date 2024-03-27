@@ -649,10 +649,6 @@ class REDEEMER:
           r.json()["id"]
           sprint(f'Redeemed Promo, Promo -> {Fore.LIGHTMAGENTA_EX}{codes[:15]}***{Fore.LIGHTCYAN_EX}, Vcc -> {Fore.LIGHTMAGENTA_EX}{self.ccn}:****:***{Fore.LIGHTCYAN_EX}, Token ->  {Fore.LIGHTMAGENTA_EX}{self.token[:23]}***')
           claimed += 1
-          set_console_title()
-          self.cancle_subscription()
-          subid = self.getSubscriptionId()
-          self.removeCard(subid)
           with open('outputSuccess/successTokens.txt', 'a') as __file__:
              __file__.write(self.ftok+
                             '\n')
